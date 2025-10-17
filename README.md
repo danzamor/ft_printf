@@ -63,13 +63,14 @@ Example of flags and conversion for a decimal argument:
 
 int main(void)
 {
-    ft_printf("|%+-08.5d|\n", 42); // + flag, - flag, 0 padding, width 8, precision 5
+    ft_printf("|%+-8.5d|\n", 42); // + flag, - flag, 0 padding, width 8, precision 5
     return 0;
 }
 ```
 ```stdout
 |+00042   |
 ```
+This example shows the combined effect of the `+` and `-` flags, a width of 8, and a precision of 5 for a decimal number.
 
 ## Author
 - **Name:** Daniel Zamora
