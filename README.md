@@ -120,5 +120,6 @@ ft_printf("|%-#10x|\n", 255); // left-align, alternate hex form, width 10
 
 ## Author
 - **Name:** Daniel Zamora
-- **GitHub:** [danzamor](https://github.com/tekuron)
+- **GitHub:** [tekuron](https://github.com/tekuron)
+- **42 Intra:** [danzamor](https://profile-v3.intra.42.fr/users/danzamor)
 - **School:** 42
