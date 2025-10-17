@@ -57,22 +57,68 @@ make bonus
 ```
 The bonus part extends ft_printf with additional features, including full support for all conversion specifiers, handling of all standard flags, and edge case management. This ensures more complete compatibility with the standard printf behavior.
 
-Example of flags and conversion for a decimal argument:
-```c
-#include "ft_printf.h"
+Examples of flags and conversions:
 
-int main(void)
-{
-    ft_printf("|%+-8.5d|\n", 42); // + flag, - flag, 0 padding, width 8, precision 5
-    return 0;
-}
+1. '+' flag (forces sign on positive numbers)
+```c
+ft_printf("|%+d|\n", 42);
 ```
 ```stdout
-|+00042   |
+|+42|
 ```
-This example shows the combined effect of the `+` and `-` flags, a width of 8, and a precision of 5 for a decimal number.
+2. '-' flag (left-align within width)
+```c
+ft_printf("|%-10d|\n", 42);
+```
+```stdout
+|42        |
+```
+3. 0 flag (pads with zeros, only if no precision)
+```c
+ft_printf("|%08d|\n", 42);
+```
+```stdout
+|00000042|
+```
+Note: The 0 flag is ignored when a precision is specified.
+```c
+ft_printf("|%08.5d|\n", 42); // 0 flag ignored due to precision
+```
+```stdout
+|   00042|
+```
+4. space flag (adds space before positive numbers)
+```c
+ft_printf("|% d|\n", 42);
+```
+```stdout
+| 42|
+```
+5. '#' flag (alternate form, for hex)
+```c
+ft_printf("|%#x|\n", 255);
+```
+```stdout
+|0xff|
+```
+
+Examples of combined flags:
+- '+' and 0 with width (no precision)
+```c
+ft_printf("|%+08d|\n", 42); // + sign, 0 padding, width 8
+```
+```stdout
+|+0000042|
+```
+- '-' and '#' with width
+```c
+ft_printf("|%-#10x|\n", 255); // left-align, alternate hex form, width 10
+```
+```stdout
+|0xff      |
+```
 
 ## Author
 - **Name:** Daniel Zamora
-- **GitHub:** [danzamor](https://github.com/danzamor)
+- **GitHub:** [danzamor](https://github.com/tekuron)
 - **School:** 42
